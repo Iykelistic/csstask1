@@ -1,0 +1,108 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define CSS variables for reusability */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #e74c3c;
+  --background-color: #f0f0f0;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Main content styles using CSS Grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Apply blend mode to the main content */
+.box:nth-child(odd) {
+  mix-blend-mode: multiply;
+}
+
+.box:nth-child(even) {
+  mix-blend-mode: overlay;
+}
+
+/* Apply animation to specific elements */
+.box:hover {
+  transform: scale(1.05);
+}
+
+/* Footer styles */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+/* Complex gradient background */
+.box:nth-child(2n + 1) {
+  background: linear-gradient(45deg, #ffae73, #ff7f50);
+}
+
+/* Gradient text */
+.box h2 {
+  background: linear-gradient(to right, #3498db, #e74c3c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Keyframe animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply animation to specific elements */
+.animated {
+  animation: rotate 4s linear infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
